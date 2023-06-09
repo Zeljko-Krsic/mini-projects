@@ -1,0 +1,263 @@
+:root {
+    /* Colors */
+    --main-color: hsl(1, 100%, 71%);
+    --button-hover: hsla(1, 100%, 81%, 0.1);
+    --text-dark: hsl(9, 0%, 12%);
+    --text-light: hsl(9, 0%, 42%);
+    --background-color: #f7f7f7;
+    /* Fonts */
+    --system-fonts: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
+        helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+    /* Space */
+    --spacing-fluid: clamp(1.25rem, calc(1.25rem + ((1vw - 0.3125rem) * 1.875)), 2rem);
+    --spacing: 1rem;
+}
+
+@font-face {
+    font-family: Sora;
+    src: url('fonts/Sora-VariableFont_wght.woff2') format('woff2 supports variations'),
+        url('fonts/Sora-VariableFont_wght.woff2') format('woff2-variations');
+    font-weight: 100 800;
+    font-display: fallback;
+}
+
+body {
+    font-family: 'Sora', var(--system-fonts);
+    color: var(--text-dark);
+    width: min(100%, calc((1140 / 16) * 1rem));
+    margin-inline: auto;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+h3,
+h4 {
+    font-size: 1.2rem;
+}
+
+h2,
+h3,
+h4 {
+    font-weight: 500;
+}
+
+header,
+.mini-wrapper,
+footer,
+.heading-1 {
+    padding-inline: var(--spacing-fluid);
+}
+
+/* Header */
+header>nav {
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-fluid);
+    height: clamp(4.375rem, calc(4.375rem + ((1vw - 0.3125rem) * 4.6875)), 6.25rem);
+}
+
+header>nav>ul {
+    display: flex;
+    gap: var(--spacing-fluid);
+    padding: 0;
+    list-style: none;
+    align-items: baseline;
+}
+
+header>nav>ul a {
+    text-decoration: none;
+    color: inherit;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: calc((13 / 16) * 1rem);
+    letter-spacing: 0.13rem;
+}
+
+a:hover {
+    color: var(--main-color);
+}
+
+header svg {
+    height: calc((50 / 16) * 1rem);
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+}
+
+/* Aside */
+aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex: 4;
+    background: #f7f7f7;
+}
+
+aside>img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.heading-1 {
+    position: absolute;
+    bottom: 70px;
+    left: 65px;
+    padding-block: calc(var(--spacing) *2);
+    width: 356.75px;
+    color: var(--text-dark);
+}
+
+/* Main */
+.main-wrapper {
+    flex: 6;
+    background: #fff;
+}
+
+.cover {
+    object-fit: cover;
+    aspect-ratio: 2 / 0.8;
+}
+
+h3,
+h2,
+.text {
+    padding-block-end: var(--spacing);
+}
+
+.text {
+    color: var(--text-light);
+}
+
+.big-article,
+.big-article-2,
+.articles,
+footer,
+.career {
+    padding-block: calc(var(--spacing) *2);
+}
+
+.big-article-2 {
+    display: flex;
+    gap: var(--spacing);
+}
+
+:where(.big-article-2)>:where(div, section) {
+    flex: 1;
+}
+
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing);
+}
+
+.articles>article {
+    flex: 1 1 calc((255 / 16) *1rem);
+    box-shadow: 0 0.2rem 0.8rem 0.1rem hsla(0, 0%, 42.4%, .11), 0 0.1rem 0.1rem 0 #ccc;
+    background-color: var(--background-color);
+}
+
+.articles img {
+    object-fit: cover;
+    aspect-ratio: 2 / 1;
+}
+
+.articles section {
+    padding: var(--spacing);
+}
+
+
+.career>section {
+    padding-inline: var(--spacing-fluid);
+    padding-block: var(--spacing);
+}
+
+/* Footer */
+footer ul {
+    padding: 0;
+    list-style: none;
+
+}
+
+footer li {
+    margin-block-end: calc(var(--spacing) *2);
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.divider {
+    margin-block: calc(var(--spacing-fluid) * 2);
+}
+
+.social {
+    display: flex;
+    gap: var(--spacing);
+}
+
+.copyright {
+    padding-block-start: calc(var(--spacing) * 6);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Button */
+:where(button, a):where(:not(:active)):focus-visible {
+    outline-offset: 5px;
+    outline-color: currentColor;
+  }
+button {
+    background-color: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  padding-inline: 12px;
+  padding-block: 5px;
+  font-weight: 500 !important;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  transition: outline-offset 145ms ease;
+}
+button:hover {
+    background-color: var(--button-hover);
+}
+
+@media (max-width: 1000px) {
+    .wrapper {
+        display: block;
+    }
+
+    aside {
+        position: relative;
+        height: 90vh;
+    }
+
+    .heading-1 {
+        position: absolute;
+        width: 90%;
+        left: 0;
+        bottom: 0;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .big-article-2 {
+        flex-direction: column;
+    }
+
+    .big-article-2 img {
+        object-fit: cover;
+        aspect-ratio: 2 / 1;
+    }
+}
